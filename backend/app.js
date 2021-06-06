@@ -16,6 +16,7 @@ const ordersRouter = require("./routes/orders");
 
 app.use(express.json());
 app.use(authJwt());
+app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
 
 app.use("/api/products", productsRouter);
 app.use("/api/categories", categoriesRouter);
