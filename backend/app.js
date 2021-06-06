@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const authJwt = require("./middleware/jwt");
 
 require("dotenv/config");
 
@@ -14,6 +15,8 @@ const usersRouter = require("./routes/users");
 const ordersRouter = require("./routes/orders");
 
 app.use(express.json());
+app.use(authJwt());
+
 app.use("/api/products", productsRouter);
 app.use("/api/categories", categoriesRouter);
 app.use("/api/users", usersRouter);
