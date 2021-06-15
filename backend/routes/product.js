@@ -78,7 +78,7 @@ router.post("/", uploadOptions.single("image"), async (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-router.put("/", uploadOptions.single("image"), async (req, res) => {
+router.put("/:id", uploadOptions.single("image"), async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id)) {
     return res.status(400).send("Bad id");
   }
